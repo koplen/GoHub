@@ -38,7 +38,9 @@ button:active {
 button:focus {
   outline:none
 }
-
+* {
+  box-sizing: border-box;
+}
 body{
   font-family: BrownLight, sans-serif;
   color: #32325d;
@@ -48,6 +50,7 @@ body{
   margin: 0 auto;
   width: 100%;
   max-width: 1235px;
+  padding: 0 15px;
 }
 section {
   margin: 0 auto;
@@ -88,7 +91,7 @@ header {
   position: relative;
 }
 .header_box {
-  padding: 50px 10px;
+  padding: 50px 0;
   height: 500px;
   width: 100%;
 
@@ -116,33 +119,25 @@ header {
   button {
     font-size: 18px;
   }
-}/*Btn*/
+}
 .btn_style {
-  padding: 12px 20px;
-  margin-right: 10px;
-
+  padding: 10px 20px;
   background-color: transparent;
   color: #32325d;
   border:1px solid transparent;
 
   font-size: 19px;
   font-weight: 700;
-  &:last-child {
-    margin-right: 0;
-  }
-  &:hover{
-    background-color: #845cff;
-    color: #fff;
-
-    border: 1px solid #845cff;
-    border-radius:5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-
-    cursor: pointer;
-    transition: color 0.2s linear, background-color .2s linear;
-  }
-} /*Btn Style*/
-
+}
+.btn_style--active {
+  margin-right: 0;
+  border: 1px solid #845cff;
+  border-radius:5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background-color: #845cff;
+  color: #fff;
+}/*Btn Style*/
+/*Btn*/
 /*Improve*/
 .improve {
   display: flex;
@@ -152,7 +147,7 @@ header {
   .improve_item {
     display: flex;
     flex-direction: column;
-    width: 38%;
+    width: 45%;
 
     padding: 50px 60px 80px 60px;
     margin-bottom: 50px;
@@ -273,6 +268,10 @@ header {
   }
   .major_right{
     width: 50%;
+    .major_right_img {
+      width: 100%;
+      height: auto;
+    }
   }/*Major left*/
 }/*Major*/
 .major--second {
@@ -282,10 +281,10 @@ header {
 
 /*Finances*/
 .finances {
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 }
 .finances_top {
-  width: 50%;
+  width: 60%;
   margin-bottom: 200px;
   .top_title{
     font-size: 48px;
@@ -296,8 +295,9 @@ header {
   }
 }
 .finances_item {
-  width: 50%;
+  width: 48%;
   margin-bottom: 100px;
+  padding-right: 10px;
   .finances_title {
     font-size: 30px;
     font-weight: 700;
@@ -307,8 +307,8 @@ header {
   display: flex;
   justify-content: space-between;
 }
-.finances_item--second {
-  width: 70%;
+.finances_item--first {
+  width: 100%;
 }
 .finances_bg {
   position: absolute;
@@ -388,10 +388,10 @@ footer {
   .footer_box {
     display: flex;
     justify-content: space-between;
-    padding: 150px 0 90px 0;
+    padding: 50px 0 50px 0;
     flex-wrap: wrap;
     .footer_item--first {
-      width: 20%;
+      width: 30%;
       .footer_logo {
         .footer_tel {
           margin: 60px 0;
@@ -407,10 +407,10 @@ footer {
         }
       } /*Footer logo*/
     }/*Footer item--first*/
-    .footer_item {
+    .footer_item{
       display: flex;
       flex-direction: column;
-      margin-bottom: 130px;
+      margin-bottom: 50px;
       width: 20%;
 
       .footer_text {
@@ -461,9 +461,11 @@ footer {
   /*Improve*/
   .improve {
     .improve_item {
-      width: 35%;
       .improve_title {
         font-size: 38px ;
+      }
+      .text_style {
+        font-size: 22px;
       }
     }
   }/*Improve*/
@@ -519,34 +521,140 @@ footer {
     .bg_img {
       width: auto;
       height: 400px;
+      opacity: 0.4;
     }
   }
   .header_content {
     .title_style {
-      font-size: 42px;
+      font-size: 38px;
+    }
+    .text_style {
+      font-size: 20px;
     }
   } /*Header*/
   /*Improve*/
   .improve {
     .improve_item {
-      width: 33%;
+      .improve_img {
+        width: 40%;
+        height: auto;
+      }
       .improve_title {
-        font-size: 38px ;
+        font-size: 30px;
       }
     }
   }/*Improve*/
+  /*Proof*/
+  .proof {
+    margin: 50px 0;
+    ;
+    .proof_top {
+      .proof_title {
+        font-size: 38px;
+      }
+    }
+    .proof_item {
+      margin: 50px 20px;
+    }
+  }
   /*Major*/
   .major {
     flex-wrap: wrap;
+    position: relative;
+    margin-bottom: 150px;
     .major_left {
       width: 100%;
-      text-align: center;
+      .major_title {
+       text-align: center;
+        line-height: 0.5;
+      }
+     }
+    .major_right {
+      position: absolute;
+      top:0;
+      right: 0;
+      z-index: 1;
+      opacity: .2;
+      .major_right_img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }/*Major*/
+
+  /*Finances*/
+  .finances {
+    margin: 20px 0;
+    .finances_top {
+      width: 100%;
+      margin: 80px 0;
+      .top_title {
+        font-size: 38px;
+        text-align: left;
+      }
+      .top_text {
+        width: 60%;
+        text-align: left;
+      }
+    }
+    .finances_item {
+      margin: 50px 0;
+      width: 100%;
+      ul {
+        width: 90%;
+      }
+    }
+    .finances_bg {
+      left: 300px;
+      opacity: .3;
+    }
+  }/*Finances*/
+  /*Ready*/
+  .ready {
+    padding: 50px 0;
+    .ready_inner {
+      .ready_title {
+        font-size: 40px;
+      }
+      .ready_text {
+        font-size: 20px;
+      }
+    }
+    .ready_label {
+      .label {
+        .ready_input {
+          width: 400px;
+        }
+      }
+
+    }
+  }/*Ready*/
+  footer {
+    .footer_box {
+      padding: 20px 0;
+      .footer_item {
+        margin-bottom: 10px;
+        .footer_logo {
+          .footer_img {
+            width: 70%;
+            height: auto;
+          }
+          .footer_tel {
+            margin: 15px 0;
+            padding: 0;
+          }
+          .footer_email {
+            margin: 10px 0;
+            text-align: left;
+          }
+        }
+        .footer_text {
+        margin-bottom: 10px;
+        }
+      }
      }
     }
-    .major_right {
-      display: none;
-    }
-}/*Media 900*/
+  }  /*Media 900*/
 @media (max-width: 770px) {
   /*Header*/
   .bg {
@@ -561,77 +669,104 @@ footer {
         display: none;
       }
     }
+
     .header_content {
       width: 90%;
       padding: 0 20px;
+
+      .title_style {
+        font-size: 34px;
+      }
     }
   }
   .logo {
     .logo_img {
-    width: 80%;
-    height: auto;
+      width: 80%;
+      height: auto;
     }
   }
   .header_content {
     .title_style {
       font-size: 42px;
     }
-  }/*Header*/
+  }
+  /*Header*/
   /*Improve*/
   .improve {
     .improve_item {
       width: 100%;
+      margin: 15px 30px;
       align-items: center;
       text-align: center;
       padding: 50px 10px;
-      margin-bottom: 20px;
+
       .improve_title {
-        font-size: 38px ;
+        font-size: 28px;
+        padding: 10px;
+      }
+
+      .improve_img {
+        width: 70%;
+        height: auto;
+        margin: 0;
       }
     }
+
     .improve_item--first {
       padding-right: 0;
     }
-  }/*Improve*/
+  }
+  /*Improve*/
   /*Proof*/
   .proof {
     .proof_top {
-      .proof_title  {
-        font-size: 36px;
+      .proof_title {
+        font-size: 28px;
       }
+
       .proof_text {
-        font-size: 18px;
+        font-size: 16px;
       }
     }
+
     .proof_item {
-      width: 45%;
+      width: 40%;
     }
-  }/*Proof*/
+  } /*Proof*/
+
   /*Finances*/
   .finances {
     margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
     .finances_bg {
-      display: none;
+      left: 300px;
+      opacity: .3;
     }
+
     .finances_top {
       width: 100%;
-      text-align: center;
-    }
-    .finances_flex {
-      display: flex;
-      flex-wrap: wrap;
-      text-align: center;
-    }
-    .finances_item{
-      width: 100%;
-      text-align: center;
-      ul {
-        text-align: left;
-        margin: 50px 0 0 50px;
+      margin: 0 0 30px 0;
+
+
+      .top_title {
+        font-size: 30px;
+        text-align: center;
       }
-    }
-    .finances_item--second{
-      width: 100%;
+      .top_text {
+        font-size: 16px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .finances_item {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+
+      }
     }
   }
   /*Ready*/
@@ -644,7 +779,7 @@ footer {
         font-size: 20px;
       }
     }
-  }
+  }/*Ready*/
 }/*Media 770*/
 @media (max-width: 600px) {
   /*Header*/
@@ -662,9 +797,7 @@ footer {
       font-size: 18px;
     }
   }
-  .btn_style {
-    font-size: 10px;
-  }/*Header*/
+ /*Header*/
   /*Improve*/
   .improve {
     .improve_item {
@@ -674,10 +807,6 @@ footer {
       }
       .improve_text {
         font-size: 15px;
-      }
-      .improve_img {
-        width: 80%;
-        height: auto;
       }
     }
   }/*Improve*/
@@ -709,6 +838,7 @@ footer {
       margin:0;
       .major_title {
         font-size: 30px;
+        line-height: 1;
       }
       .major_text {
         font-size:18px;
@@ -737,19 +867,25 @@ footer {
       font-size: 16px;
     }
   }
+  .finances_bg {
+    .finances_bg_img {
+      width: 600px;
+      height: auto;
 
+    }
+  }
   /*Ready*/
 .ready {
   .ready_label {
     .label {
       .ready_input {
-        width: 300px;
+        font-size: 16px;
+        width: 350px;
         height: 80px;
       }
     }
   }
 }/*Ready*/
-
   /*Footer*/
   footer {
     .footer_box {
@@ -768,7 +904,8 @@ footer {
       font-size: 14px ;
     }
   }
-}/*Media 600*/
+}
+/*Media 600*/
 @media (max-width: 380px) {
   /*Header*/
   .logo {
@@ -782,6 +919,22 @@ footer {
       width: auto;
       height: 200px;
     }
+  }
+  .header_box {
+    padding: 20px 0;
+    .header_content {
+      .title_style {
+        line-height: 1.2;
+      }
+      .text_style {
+        margin: 15px 0;
+      }
+      .btn {
+        .btn_style {
+          font-size: 12px;
+        }
+      }
+    }
   }/*Header*/
   /*Improve*/
   .improve {
@@ -793,59 +946,115 @@ footer {
         font-size: 12px;
       }
       .improve_img {
-        width: 70%;
+        width: 50%;
         height: auto;
       }
     }
   }/*Improve*/
+/*Proof*/
+  .proof {
 
+    padding: 20px 0;
+    .proof_item {
+      .proof_img {
+        width: 20%;
+        height: auto;
+      }
+      .proof_item_title{
+        font-size: 20px;
+        margin: 8px 0;
+      }
+      .proof_item_text {
+        font-size: 16px;
+      }
+    }
+  }
   /*Major*/
   .major {
     .major_left {
       .major_title {
-        font-size:26px;
+        font-size: 26px;
       }
       .major_text {
-        font-size:15px;
+          font-size: 15px;
       }
-    }
-    .drive_ride {
-      .drive {
-        .drive_ride_title {
-          font-size: 20px;
+      .drive_ride {
+        .drive {
+          .drive_ride_title {
+            font-size: 20px;
+          }
+        }
+
+        .ride {
+          .drive_ride_title {
+            font-size: 20px;
+          }
         }
       }
-      .ride {
-        .drive_ride_title {
-          font-size: 20px;
+      .btn {
+        .btn_style {
+          font-size: 12px;
         }
       }
-    }
+    }/*Major left */
   }/*Major*/
-  .finances_top {
-    margin: 100px 0;
-    .top_title{
-      font-size: 26px;
-    }
-    .top_text {
-      font-size: 14px;
-    }
-  }
   .finances {
+    .finances_top {
+      .top_title {
+        font-size: 26px;
+        margin-bottom: 15px;
+      }
+      .top_text {
+        font-size: 16px;
+      }
+    }
     .finances_item {
+      margin: 15px 0 0 0 ;
       .finances_title {
-        font-size: 20px;
+        font-size: 18px;
+      }
+      ul {
+        font-size: 14px;
+        margin: 10px 0;
+      }
+    }
+    .finances_flex {
+      .finances_item {
+        width: 100%;
       }
     }
   }
   /*Finances*/
 
   .ready {
+    padding: 30px 0;
+    .ready_inner {
+      font-size: 10px;
+      .ready_title {
+        font-size: 24px;
+        margin: 10px 0;
+      }
+      .ready_text {
+        font-size: 16px;
+      }
+    }
     .ready_label {
       .label {
+        padding: 0;
+        margin: 20px;
         .ready_input {
+          font-size: 14px;
           width: 250px;
           height: 60px;
+        }
+      }
+      .ready_button {
+        top:38%;
+        .start {
+          font-size: 12px;
+        }
+        i {
+          font-size: 12px;
         }
       }
     }
@@ -854,17 +1063,29 @@ footer {
   /*Footer*/
   footer {
     .footer_box {
-      padding:40px 0 20px 0 ;
+      padding: 10px 0 ;
       .footer_item {
-        font-size: 12px;
+        font-size: 8px;
+        margin-bottom: 5px;
+        .footer_text {
+          line-height: 1;
+          margin-bottom: 5px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          width: 40px;
+          text-align: center;
+        }
         .footer_logo {
           .footer_img {
             width: 80% ;
             height: auto;
           }
+          .footer_icons{
+            display: none
+          }
+          }
         }
+
       }
-    }
     .footer_end {
       font-size: 8px ;
     }
